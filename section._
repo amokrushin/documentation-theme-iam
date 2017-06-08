@@ -17,6 +17,15 @@
 
   <%= md(section.description) %>
 
+  <% if (section.sees) { %><p>
+    <% section.sees.length && section.sees.forEach(function(see) { %><div class='h5'>
+      <span>See: </span>
+      <a class='fr fill-darken0 round pad1x quiet' href='<%= see.children[0].children[0].url %>'>
+        <span><%= see.children[0].children[0].children[0].value %></span>
+      </a>
+    </div><% }) %>
+  </p><% }%>
+
   <div class='pre p1 fill-light mt0'><%= signature(section) %></div>
   <% if (section.type) { %>
     <p>
